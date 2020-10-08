@@ -2,6 +2,9 @@
 ///<reference path='babylon.d.ts' />
 
 import { startScrollama } from './scrollama.js';
+import { importLocalGLTFModelLandscape } from './load3DModels.js'
+import { importLocalGLTFModelRoomscale } from './load3DModels.js'
+import { importOnlineGLTFModel } from './load3DModels.js'
 
 //-------------Testing get mouse/touch position
 var scrollytellingArea = document.getElementById("babylonScrollytelling");
@@ -110,11 +113,14 @@ function createScene(canvas, engine) {
     //create HDR Skybox
     createSkybox(scene);
 
-    //import online glTF models
-    // importOnlineGLTFModel(scene);
+    //import room-scale, scene 3D model, load local GLTF model
+    importLocalGLTFModelRoomscale(scene);
+
+    //import landscape model, load local GLTF model
+    //importLocalGLTFModelLandscape(scene);
 
     //import local glTF models
-    importLocalGLTFModel(scene);
+    //importOnlineGLTFModel(scene);
 
     //scroll to move camera position, move mouse to change camera perspective. It can only be used when universal camera is enabled
     //scrollToMoveCamera(scene);
@@ -263,8 +269,8 @@ function moveCameraOnPlane(scene) {
             if (delta > 0)
                 scene.activeCamera.position.addInPlace(dir);
             else
-            scrollytellingArea.activeCamera.position.subtractInPlace(dir);
-            
+                scrollytellingArea.activeCamera.position.subtractInPlace(dir);
+
         }
     }, BABYLON.PointerEventTypes.POINTERWHEEL, false);
     scene.registerBeforeRender(function () { universalCamera.rotation.x = 0; })
@@ -344,42 +350,6 @@ function createHemisphericLight(scene) {
 //create a HDR skybox 
 function createSkybox(scene) {
     new BABYLON.HDRCubeTexture("images/noon_grass_2k.hdr", scene);
-}
-
-//load online GLTF model
-function importOnlineGLTFModel(scene) {
-    new BABYLON.SceneLoader.ImportMesh('', 'https://alexli016.github.io/stemCell_intro/', 'StemCel_ani.gltf', scene, (meshes) => {
-        //scaling, postioning and rotating gltf model
-        meshes.forEach((mesh) => {
-            mesh.scaling = new BABYLON.Vector3(2, 2, 2);
-            mesh.position = new BABYLON.Vector3.Zero();
-            mesh.rotation = new BABYLON.Vector3(0, 0, 0);
-
-            mesh.checkCollisions = true;
-            //play animations
-            scene.animationGroups[1].start(true);
-            scene.animationGroups[2].start(true);
-        })
-    })
-
-}
-
-//load local GLTF model
-function importLocalGLTFModel(scene) {
-    new BABYLON.SceneLoader.ImportMesh('', 'models/', 'baganTemple.gltf', scene, (meshes) => {
-        //scaling, postioning and rotating gltf model
-        meshes.forEach((mesh) => {
-            mesh.scaling = new BABYLON.Vector3(1, 1, 1);
-            mesh.position = new BABYLON.Vector3.Zero();
-            mesh.rotation = new BABYLON.Vector3(0, 0, 0);
-            mesh.checkCollisions = true;
-
-            //play animations
-            scene.animationGroups[1].start(true);
-            //scene.animationGroups[2].start(true);
-        })
-    })
-
 }
 
 //For desktop, scroll to move camera position, move mouse to change camera perspective. It can only be used when universal camera is enabled
