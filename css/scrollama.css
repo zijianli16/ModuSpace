@@ -1,0 +1,51 @@
+/* -------- Adding Scrollama CSS -------- */
+.scrollTexts {
+    /* 'position:relative' allows the article section to be positioned in a custom way */
+    position: relative;
+    padding: 0 1rem;
+    /* 'max-width' sets how wide each step's the text comes up on the screen */
+    max-width: 20rem;
+    /* 'OPTIONAL: margin-top' sets how much space there is between the the figure and the first message.*/
+    margin-top: 0;
+    /* 'margin-left:auto' and 'margin-right:auto' centers the article on the page.*/
+    margin-left: auto;
+    margin-right: auto;
+    /* 'transform' is included to ensure z-index works properly on all kinds of devices */
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    z-index: 1;
+    border: transparent dotted;
+}
+
+.step {
+    /* 'position relative' allows the steps to positioned in a custom way*/
+    position: relative;
+    /* margins are set to position step as high as possible, centered, and with a minimum bottom margin*/
+    margin: 0 auto 80rem auto;
+    height: 120%;
+    width: 100%;
+    opacity: 0.9;
+    top: 50%;
+    z-index: 1;
+}
+
+.step p {
+    /* 'position relative' allows the steps to positioned in a custom way*/
+    position: relative;
+    /*OPTIONAL: centers the text*/
+    text-align: center;
+    /*OPTIONAL: creates space around the text*/
+    padding: 1rem;
+    /*OPTIONAL: can be set based on preferences*/
+    /* font-size: 2rem; */
+    /*OPTIONAL: can be set based on preferences*/
+    background-color: #f3f3f3;
+    /*OPTIONAL: creates a solid box around the text*/
+    border: 2px solid #282828;
+    /*OPTIONAL: makes the text slightly see-through so that the figure is somewhat visible underneath*/
+    opacity: 0.90;
+    font-weight: bold;
+}
+
+/* ------- Ending of Scrollama CSS --------- */
