@@ -82,7 +82,7 @@ BABYLON.DefaultLoadingScreen.prototype.hideLoadingUI = function (scene) {
 
     document.getElementsByClassName("scrollTexts")[0].style.display = null;
 
-}
+};
 
 //create the main BABYLON scene object
 function createScene(canvas, engine) {
@@ -224,10 +224,9 @@ function createUniversalCamera(scene) {
     //     camera.rotation.x = 90;
     // })
 }
-//*************************ABOVES ARE CAMERAS*******************/
+//*************************ABOVES ARE CAMERAS*****************************/
 
 //*************************BELOW ARE CAMERAS ANIMATION*******************/
-
 //(Obsolete) camera rotation without pressing down left mouth key 
 function cameraRotateWithoutLeftMouse(scene) {
     scene.onPrePointerObservable.add(function (pointerInfo, eventState) {
