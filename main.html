@@ -1,0 +1,73 @@
+<!DOCTYPE html lang="en" lang="zh-Hans">
+
+<head>
+    <title>Babylon.js Spatial Storytelling Basic Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- import external scripts lib -->
+    <script src="js/externalScriptsLib.js"></script>
+    <!-- import css file -->
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/babylon.css">
+    <link rel="stylesheet" href="css/scrollama.css">
+</head>
+
+<body>
+    <!-- =================Adding Front Dummy Texts================= -->
+    <div id="frontDummyTexts"></div>
+    <!-- =================End of Front Dummy Texts================= -->
+    
+    <!--Starting of babylon scrollytelling section -->
+    <div id="babylonScrollytelling">
+        <div id="babylonContainer">
+            <!-- create the Babylon.js main canvas -->
+            <canvas id="renderCanvas" touch-action="auto"></canvas>
+
+            <figcaption class="credit">Credit: 3D Model Downloaded from Sketchfab.com
+            </figcaption>
+        </div>
+
+        <!-- Adding scrollama section below -->
+        <div class="scrollTexts">
+            <div class="step" data-step="a">
+                <p>
+                    欢迎来到位于缅甸的蒲甘寺庙。移动鼠标以环顾四周。<br>
+                    Welcome to Bagan Temple which locaed in Myanmar. Move your mouse to look around.
+                </p>
+            </div>
+
+            <div class="step" data-step="b">
+                <p>
+                    蒲甘有令人叹为观止的宗教历史建筑群和迷人的平原景观。<br>
+                    Bagan stands out for not only the sheer number of religious edifices but also the magnificent
+                    architecture of the buildings.
+                </p>
+            </div>
+
+            <div class="step" data-step="c">
+                <p>
+                    “手指之处，皆为佛塔”——拥有2000多座佛塔和寺庙遗迹的蒲甘，被誉为“庙宇之城”,是闻名世界的旅游胜地。
+                    <br>
+                    The Bagan Archaeological Zone is a main attraction for the country's nascent tourism industry.
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- Ending of babylon scrollytelling section -->
+
+    <!-- =================Adding Back Dummy Texts================= -->
+    <div id="backDummyTexts"></div>
+    <!-- =================End of Back Dummy Texts================= -->
+
+    <!-- =================import babylon main js ================= -->
+    <script type="module" src="js/babylonMain.js"></script>
+    
+    <!-- ================= Import dummy texts ================= -->
+    <script>
+        $(function () {
+            $("#frontDummyTexts").load("html/frontDummyTexts.html");
+            $("#backDummyTexts").load("html/backDummyTexts.html")
+        });
+    </script>
+    <!-- ================= End of dummy texts ================= -->
+</body>
+</html>
