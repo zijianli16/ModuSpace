@@ -98,6 +98,9 @@ function createScene(canvas, engine) {
     //create an iniversal camera to enable scroll to control camera movement
     createUniversalCamera(scene);
 
+    //create a camera which move on a plane
+    //moveCameraOnPlane(scene);
+
     //Universal Camera Movement without pressing mouse
     //cameraRotateWithoutLeftMouse(scene);
 
@@ -144,6 +147,13 @@ engine.runRenderLoop(() => {
 window.addEventListener('resize', function () {
     engine.resize();
 });
+
+
+
+//****************************************************************************************************
+//**************************************SET UP THINGS BELOW*******************************************
+//****************************************************************************************************
+
 
 //*************************BELOW ARE CAMERAS*******************/
 //create an Arc Rotate Camera
@@ -223,6 +233,41 @@ function createUniversalCamera(scene) {
     //     camera.position.y = 100;
     //     camera.rotation.x = 90;
     // })
+}
+
+//Adding camera moving on a plane
+function moveCameraOnPlane(scene) {
+    //set camera name, initial position, and sign it to scene
+    universalCamera = new BABYLON.UniversalCamera("camera1", new BABYLON.Vector3(0, 5, -15), scene);
+    //set initial camera target
+    universalCamera.setTarget(new BABYLON.Vector3(0, 8, 10));
+    //attach camera to canvas
+    universalCamera.attachControl(canvas, true);
+
+    // wingnut crap.
+    scene.onPrePointerObservable.add(function (pointerInfo, eventState) {
+        // console.log(pointerInfo);
+        var event = pointerInfo.event;
+        var delta = 0;
+        if (event.wheelDelta) {
+            delta = event.wheelDelta;
+        }
+        else if (event.detail) {
+            delta = -event.detail;
+        }
+        if (delta) {
+            console.log(delta);
+            var dir = scene.activeCamera.getDirection(BABYLON.Axis.Z);
+            console.log("dir: ", dir);
+            //scene.activeCamera.position.z += delta/10;
+            if (delta > 0)
+                scene.activeCamera.position.addInPlace(dir);
+            else
+            scrollytellingArea.activeCamera.position.subtractInPlace(dir);
+            
+        }
+    }, BABYLON.PointerEventTypes.POINTERWHEEL, false);
+    scene.registerBeforeRender(function () { universalCamera.rotation.x = 0; })
 }
 //*************************ABOVES ARE CAMERAS*****************************/
 
