@@ -235,7 +235,7 @@ function createUniversalCamera(scene) {
     // })
 }
 
-//Adding camera moving on a plane
+//Adding camera moving on a plane, remove scrollama, and createUniversalCamera(scene)
 function moveCameraOnPlane(scene) {
     //set camera name, initial position, and sign it to scene
     universalCamera = new BABYLON.UniversalCamera("camera1", new BABYLON.Vector3(0, 5, -15), scene);
