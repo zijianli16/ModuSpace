@@ -1,4 +1,5 @@
 let value;
+
 var canvas = document.getElementById("canvas");
 var engine = new BABYLON.Engine(canvas, true);
 

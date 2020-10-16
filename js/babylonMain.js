@@ -95,6 +95,28 @@ function createScene(canvas, engine) {
     //scene background color
     scene.clearColor = new BABYLON.Color3.FromHexString('#ffffff');
 
+    //creat a HemisphericLight
+    createHemisphericLight(scene);
+
+    //create HDR Skybox
+    createSkybox(scene);
+
+    //loading loading screen
+    engine.displayLoadingUI();
+
+    //remove loading screen
+    setTimeout(() => {
+        engine.hideLoadingUI();
+
+        //animate Universal Camera
+        animateUniversalCamera(scene);
+    }, 5000)
+
+    //debug scene
+    //debug(scene);
+
+    //==================Scene Basic setup Above============
+
     //create an Arc Rotate Camera
     // creatArcRotateCamera(scene);
 
@@ -107,12 +129,6 @@ function createScene(canvas, engine) {
     //Universal Camera Movement without pressing mouse
     //cameraRotateWithoutLeftMouse(scene);
 
-    //creat a HemisphericLight
-    createHemisphericLight(scene);
-
-    //create HDR Skybox
-    createSkybox(scene);
-
     //import room-scale, scene 3D model, load local GLTF model
     importLocalGLTFModelRoomscale(scene);
 
@@ -124,18 +140,6 @@ function createScene(canvas, engine) {
 
     //scroll to move camera position, move mouse to change camera perspective. It can only be used when universal camera is enabled
     //scrollToMoveCamera(scene);
-
-    //debug scene
-    // debug(scene);
-
-    engine.displayLoadingUI();
-
-    setTimeout(() => {
-        engine.hideLoadingUI();
-
-        //animate Universal Camera
-        animateUniversalCamera(scene);
-    }, 5000)
 
     //return scene
     return scene;
