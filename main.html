@@ -9,45 +9,88 @@
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/babylon.css">
     <link rel="stylesheet" href="css/scrollama.css">
+    <link rel="stylesheet" href="css/scrollmagic.css">
 </head>
 
 <body>
     <!-- =================Adding Front Dummy Texts================= -->
-    <div id="frontDummyTexts"></div>
+    <div class="frontDummyTexts"></div>
     <!-- =================End of Front Dummy Texts================= -->
-    
+
+    <!-- =================BABYLON SCENE 01 STARTS BELOW================= -->
+    <div id="contentContainer">
+        <div id="videoSpacer"></div>
+        <div id="babylonContainer01">
+            <canvas id="canvas" touch-action="auto"></canvas>
+            <figcaption class="figCaption">3D Model Courtesy of Miguel Bandera</figcaption>
+        </div>
+
+        <div id="textContainer">
+            <div class="spacer" id="spacer0001"></div>
+            <div id="trigger1"></div>
+            <div id="pin1">
+                <p class="textbox" id="overlayText01">El Capitan, also known as El Cap, is a vertical rock formation in
+                    Yosemite National Park, located on the north side of Yosemite Valley.</p>
+            </div>
+
+            <div class="spacer" id="spacer0102"></div>
+            <div id="trigger2"></div>
+            <div id="pin2">
+                <p class="textbox" id="overlayText02">
+                    The granite monolith is about 3,000 feet from base to summit along its tallest face, and is a
+                    popular objective for rock climbers.
+                </p>
+            </div>
+
+            <div class="spacer" id="spacer0203"></div>
+            <div id="trigger3"></div>
+            <div id="pin3">
+                <p class="textbox" id="overlayText03">
+                    On June 3, 2017, Alex Honnold made the first free solo ascent of El Capitan, completing the
+                    2,900-foot Freerider route in 3 hours and 56 minutes.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- =================Adding Back Dummy Texts================= -->
+    <div class="backDummyTexts"></div>
+    <!-- =================End of Back Dummy Texts================= -->
+
+    <!-- =================BABYLON SCENE 02 STARTS BELOW================= -->
+    <!-- =================Adding Front Dummy Texts================= -->
+    <div class="frontDummyTexts"></div>
+    <!-- =================End of Front Dummy Texts================= -->
+
     <!--Starting of babylon scrollytelling section -->
     <div id="babylonScrollytelling">
         <div id="babylonContainer">
             <!-- create the Babylon.js main canvas -->
             <canvas id="renderCanvas" touch-action="auto"></canvas>
-
             <figcaption class="credit">Credit: 3D Model Courtesy of Miguel Bandera
             </figcaption>
         </div>
-
         <!-- Adding scrollama section below -->
-        <div class="scrollTexts">
-            
-        </div>
+        <div class="scrollTexts"></div>
     </div>
     <!-- Ending of babylon scrollytelling section -->
 
     <!-- =================Adding Back Dummy Texts================= -->
-    <div id="backDummyTexts"></div>
+    <div class="backDummyTexts"></div>
     <!-- =================End of Back Dummy Texts================= -->
 
     <!-- =================import babylon main js ================= -->
     <script type="module" src="js/babylonMain.js"></script>
-    
-    <!-- ================= Import dummy texts ================= -->
+    <script src="js/scrollmagic.js"></script>
+
+    <!-- =================import HTML content below ================= -->
     <script>
         $(function () {
-            $("#frontDummyTexts").load("html/frontDummyTexts.html");
-            $("#backDummyTexts").load("html/backDummyTexts.html");
+            $(".frontDummyTexts").load("html/frontDummyTexts.html");
+            $(".backDummyTexts").load("html/backDummyTexts.html");
             $(".scrollTexts").load("html/scrollama.html")
         });
     </script>
-    <!-- ================= End of dummy texts ================= -->
 </body>
+
 </html>
