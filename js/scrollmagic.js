@@ -41,6 +41,9 @@ function createHemisphericLight(scene) {
 }
 
 function blenderCameraAnimation(scene) {
+    //creating a skybox
+    scene.clearColor = new BABYLON.Color3.FromHexString('#ffffff');
+
     // This creates and positions a free camera (non-mesh) requried, and position does not matter 
     var camera_not_in_use = new BABYLON.FreeCamera("camera_not_in_use", new BABYLON.Vector3(0, 100, 0), scene);
 
