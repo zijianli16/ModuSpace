@@ -3,46 +3,6 @@
 
 let value;
 
-//********************************Create Customize Loading Screen ************************** */
-//********************************Create Customize Loading Screen ************************** */
-// BABYLON.DefaultLoadingScreen.prototype.displayLoadingUI = function (scene) {
-//     if (document.getElementById("mycustomLoadingScreen")) {
-//         document.getElementById("mycustomLoadingScreen").style.display = "initial";
-//         // Do not add a loading screen if there is already one
-//         return;
-//     }
-
-//     this._loadingDiv = document.createElement("div");
-//     this._loadingDiv.id = "mycustomLoadingScreen";
-//     this._loadingDiv.innerHTML = "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Loadingsome.gif/600px-Loadingsome.gif' />";
-//     var mycustomLoadingScreenCss = document.createElement('style');
-//     // customLoadingScreenCss.type = 'text/css';
-//     mycustomLoadingScreenCss.innerHTML = `
-//     #mycustomLoadingScreen{
-//         position: absolute;
-//         top: 0;
-//         width: 100%;
-//         height: 100%;
-//         background-color: #FFFFFF;
-//         color: white;
-//         font-size:50px;
-//         text-align:center;
-//         z-index: 30
-//     }
-//     `;
-
-//     document.getElementById('babylonContainer01').appendChild(mycustomLoadingScreenCss);
-    
-//     //this._resizeLoadingUI();
-//     //window.addEventListener("resize", this._resizeLoadingUI);
-
-//     document.getElementById("babylonContainer01").appendChild(this._loadingDiv);
-
-//     console.log("Adding loading screen");
-// };
-//********************************Create Customize Loading Screen ************************** */
-//********************************Create Customize Loading Screen ************************** */
-
 var canvas = document.getElementById("canvas");
 var engine = new BABYLON.Engine(canvas, true);
 
