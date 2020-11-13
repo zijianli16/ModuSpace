@@ -14,14 +14,15 @@ let externalScriptsLib = [
     "https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.js",
     "https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.js",
     "https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.js",
+    // //Google <model-viewer>
+    // "https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js",
+    // "https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"
 ]
 
-function attachExternalScriptsLib() 
-{
+function attachExternalScriptsLib() {
     for (var js of externalScriptsLib) {
         document.write('<script src="' + js +'"></script>');
     }
 }
 
 attachExternalScriptsLib();
-

@@ -1,12 +1,59 @@
+//import type auto completion file
+///<reference path='babylon.d.ts' />
+
 let value;
+
+//********************************Create Customize Loading Screen ************************** */
+//********************************Create Customize Loading Screen ************************** */
+// BABYLON.DefaultLoadingScreen.prototype.displayLoadingUI = function (scene) {
+//     if (document.getElementById("mycustomLoadingScreen")) {
+//         document.getElementById("mycustomLoadingScreen").style.display = "initial";
+//         // Do not add a loading screen if there is already one
+//         return;
+//     }
+
+//     this._loadingDiv = document.createElement("div");
+//     this._loadingDiv.id = "mycustomLoadingScreen";
+//     this._loadingDiv.innerHTML = "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Loadingsome.gif/600px-Loadingsome.gif' />";
+//     var mycustomLoadingScreenCss = document.createElement('style');
+//     // customLoadingScreenCss.type = 'text/css';
+//     mycustomLoadingScreenCss.innerHTML = `
+//     #mycustomLoadingScreen{
+//         position: absolute;
+//         top: 0;
+//         width: 100%;
+//         height: 100%;
+//         background-color: #FFFFFF;
+//         color: white;
+//         font-size:50px;
+//         text-align:center;
+//         z-index: 30
+//     }
+//     `;
+
+//     document.getElementById('babylonContainer01').appendChild(mycustomLoadingScreenCss);
+    
+//     //this._resizeLoadingUI();
+//     //window.addEventListener("resize", this._resizeLoadingUI);
+
+//     document.getElementById("babylonContainer01").appendChild(this._loadingDiv);
+
+//     console.log("Adding loading screen");
+// };
+//********************************Create Customize Loading Screen ************************** */
+//********************************Create Customize Loading Screen ************************** */
 
 var canvas = document.getElementById("canvas");
 var engine = new BABYLON.Engine(canvas, true);
 
 var createScene = function (canvas, engine) {
 
+    
+
     var scene = new BABYLON.Scene(engine);
 
+    // engine.displayLoadingUI(scene);
+    
     //scene background color
     scene.clearColor = new BABYLON.Color3.FromHexString('#000000');
 
@@ -32,6 +79,13 @@ window.addEventListener("resize", function () {
     engine.resize();
 });
 
+//****************************************BASIC SETUP IS ABOVE ***********************************/
+//****************************************BASIC SETUP IS ABOVE ***********************************/
+//****************************************BASIC SETUP IS ABOVE ***********************************/
+
+
+//***************************************Set Lighting************************************** */
+//***************************************Set Lighting************************************** */
 function createHemisphericLight(scene) {
     const hemisphericLight = new BABYLON.HemisphericLight('hemisphericLight', BABYLON.Vector3(1, 5, 1), scene);
 
@@ -39,6 +93,8 @@ function createHemisphericLight(scene) {
     hemisphericLight.intensity = 6;
     hemisphericLight.groundColor = new BABYLON.Color3.FromHexString('#ffffff');
 }
+//***************************************Set Lighting************************************** */
+//***************************************Set Lighting************************************** */
 
 function blenderCameraAnimation(scene) {
     //creating a skybox
@@ -47,12 +103,12 @@ function blenderCameraAnimation(scene) {
     // This creates and positions a free camera (non-mesh) requried, and position does not matter 
     var camera_not_in_use = new BABYLON.FreeCamera("camera_not_in_use", new BABYLON.Vector3(0, 100, 0), scene);
 
-    new BABYLON.SceneLoader.ImportMesh('', 'models/', 'baganLandscape.gltf', scene, (mesh) => {
+    new BABYLON.SceneLoader.ImportMesh('', 'models/', 'baganLandscape.gltf', scene, () => {
         //scene.createDefaultCameraOrLight(true, true, true)
+        console.log("scene =" + scene);
 
         let camera_active = scene.getCameraByName("blenderCamera")
         scene.activeCamera = camera_active
-
 
         let cameraAnimation = scene.getAnimationGroupByName("cameraAction");
         //stop animation loop
@@ -61,6 +117,8 @@ function blenderCameraAnimation(scene) {
         //cameraAnimation.speedRatio = 2;
         cameraAnimation.goToFrame(0);
         cameraAnimation.pause();
+
+        document.getElementById("loadingScreen").style.display = "none";
 
         setInterval(() => {
             cameraAnimation.goToFrame(value);
@@ -74,6 +132,8 @@ function debug(scene) {
     scene.debugLayer.show();
 }
 
+//==============================Scrollmagic code are below================================
+//==============================Scrollmagic code are below================================
 //==============================Scrollmagic code are below================================
 
 //=========================Allow Video to Play Only When Video Has Reached the Top========================

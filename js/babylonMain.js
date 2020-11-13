@@ -70,11 +70,13 @@ BABYLON.DefaultLoadingScreen.prototype.displayLoadingUI = function (scene) {
     `;
 
     document.getElementById('babylonContainer').appendChild(customLoadingScreenCss);
+    
 
     //this._resizeLoadingUI();
     //window.addEventListener("resize", this._resizeLoadingUI);
 
     document.getElementById("babylonContainer").appendChild(this._loadingDiv);
+    
 
     document.getElementsByClassName("scrollTexts")[0].style.display = "none";
 };
