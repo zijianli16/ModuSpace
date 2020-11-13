@@ -7,13 +7,10 @@ var canvas = document.getElementById("canvas");
 var engine = new BABYLON.Engine(canvas, true);
 
 var createScene = function (canvas, engine) {
-
-    
-
     var scene = new BABYLON.Scene(engine);
 
     // engine.displayLoadingUI(scene);
-    
+
     //scene background color
     scene.clearColor = new BABYLON.Color3.FromHexString('#000000');
 

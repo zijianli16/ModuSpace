@@ -1,6 +1,10 @@
 //import room-scale, scene 3D model, load local GLTF model
 export function importLocalGLTFModelRoomscale(scene) {
-    new BABYLON.SceneLoader.ImportMesh('', 'models/', 'baganTemple.gltf', scene, (meshes) => {
+    new BABYLON.SceneLoader.ImportMesh('', 'models/', 'baganTemple.gltf', scene, () => {
+
+        document.getElementById("loadingScreen02").style.display = "none";
+        console.log("loadingScreen02 has been excicuted");
+
         //scaling, postioning and rotating gltf model
         meshes.forEach((mesh) => {
             mesh.scaling = new BABYLON.Vector3(1, 1, 1);
@@ -14,6 +18,7 @@ export function importLocalGLTFModelRoomscale(scene) {
 
             //engine.hideLoadingUI(scene);
         })
+
     })
 
 }
