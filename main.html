@@ -1,7 +1,7 @@
 <!DOCTYPE html lang="en" lang="zh-Hans">
 
 <head>
-    <title>Babylon.js Spatial Storytelling Basic Template</title>
+    <title>3D滑动叙事：明长城</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!-- import external scripts lib -->
@@ -19,7 +19,7 @@
     <!-- =================End of Front Dummy Texts================= -->
 
     <!-- Adding P Tags -->
-    <p>3D滚动叙事：向下滑动以领略明长城风光，手机用户横屏效果更佳。</p>
+    <h3>3D滚动叙事：向下滑动以领略明长城风光。</h3>
     <!-- Adding P Tags -->
 
 
@@ -28,11 +28,10 @@
         <div id="videoSpacer"></div>
         <div id="babylonContainer01">
             <div id="loadingScreen">
-                <img
-                    src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Loadingsome.gif/600px-Loadingsome.gif'>
+                <img src='images/loadingScreen.gif'>
             </div>
             <canvas id="canvas" touch-action="auto"></canvas>
-            <figcaption class="figCaption">特别鸣谢模型作者：DroneScan China。3D模型下载来源Sketchfab.com </figcaption>
+            <figcaption class="figCaption">特别鸣谢模型作者：DroneScan China。3D模型下载来源:Sketchfab.com </figcaption>
         </div>
 
         <div id="textContainer">
@@ -92,28 +91,28 @@
 
     <!-- =================BABYLON SCENE 02 STARTS BELOW================= -->
     <!-- =================Adding Front Dummy Texts================= -->
-    <div class="frontDummyTexts"></div>
+    <!-- <div class="frontDummyTexts"></div> -->
     <!-- =================End of Front Dummy Texts================= -->
 
     <!--Starting of babylon scrollytelling section -->
-    <div id="babylonScrollytelling">
+    <!-- <div id="babylonScrollytelling">
         <div id="babylonContainer">
             <div id="loadingScreen02">
                 <img
                     src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Loadingsome.gif/600px-Loadingsome.gif'>
-            </div>
-            <!-- create the Babylon.js main canvas -->
-            <canvas id="renderCanvas" touch-action="auto"></canvas>
+            </div> -->
+    <!-- create the Babylon.js main canvas -->
+    <!-- <canvas id="renderCanvas" touch-action="auto"></canvas>
             <figcaption class="credit">3D模型现在来源Sketchfab.com；模型作者：DroneScan China。特别鸣谢！
             </figcaption>
-        </div>
-        <!-- Adding scrollama section below -->
-        <div class="scrollTexts"></div>
-    </div>
+        </div> -->
+    <!-- Adding scrollama section below -->
+    <!-- <div class="scrollTexts"></div>
+    </div> -->
     <!-- Ending of babylon scrollytelling section -->
 
     <!-- =================Adding Back Dummy Texts================= -->
-    <div class="backDummyTexts"></div>
+    <!-- <div class="backDummyTexts"></div> -->
     <!-- =================End of Back Dummy Texts================= -->
 
     <!-- =================import babylon main js ================= -->
@@ -125,7 +124,7 @@
         $(function () {
             $(".frontDummyTexts").load("html/frontDummyTexts.html");
             $(".backDummyTexts").load("html/backDummyTexts.html");
-            $(".scrollTexts").load("html/scrollama.html")
+            // $(".scrollTexts").load("html/scrollama.html")
         });
     </script>
 </body>
