@@ -187,9 +187,9 @@ let text01Scene = new ScrollMagic.Scene({
 
 //------------------------OverlayText02---------------------
 //set text02 mergining from bottom of viewport at 4 second
-let text02TargetShowTime = 2;
+let text02TargetShowTime = 2.5;
 //set text02 pin duration, i.e 800px or 0.8 second of video duration
-let text02Stay = 800;
+let text02Stay = 600;
 document.getElementById("spacer0102").style.marginTop = (text02TargetShowTime - text01TargetShowTime) * yOffsetToVidTimeRate - text01Stay + "px"
 
 let text02Scene = new ScrollMagic.Scene({
