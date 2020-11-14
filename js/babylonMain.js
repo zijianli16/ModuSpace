@@ -42,50 +42,52 @@ const canvas = document.getElementById('renderCanvas');
 //create a Babylon.js engine object. The engine is BJS’ main workhorse which will be used to continuously render the scene; true means anti-aliasing
 const engine = new BABYLON.Engine(canvas, true);
 
-//creating customized loading screen
-BABYLON.DefaultLoadingScreen.prototype.displayLoadingUI = function (scene) {
-    if (document.getElementById("customLoadingScreen")) {
-        document.getElementById("customLoadingScreen").style.display = "initial";
-        // Do not add a loading screen if there is already one
-        return;
-    }
+// //creating customized loading screen
+// BABYLON.DefaultLoadingScreen.prototype.displayLoadingUI = function (scene) {
+//     if (document.getElementById("customLoadingScreen")) {
+//         document.getElementById("customLoadingScreen").style.display = "initial";
+//         // Do not add a loading screen if there is already one
+//         return;
+//     }
 
-    this._loadingDiv = document.createElement("div");
-    this._loadingDiv.id = "customLoadingScreen";
-    this._loadingDiv.innerHTML = "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Loadingsome.gif/600px-Loadingsome.gif' />";
-    var customLoadingScreenCss = document.createElement('style');
-    // customLoadingScreenCss.type = 'text/css';
-    customLoadingScreenCss.innerHTML = `
-    #customLoadingScreen{
-        position: absolute;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: #FFFFFF;
-        color: white;
-        font-size:50px;
-        text-align:center;
-        z-index: 3;
-    }
-    `;
+//     this._loadingDiv = document.createElement("div");
+//     this._loadingDiv.id = "customLoadingScreen";
+//     this._loadingDiv.innerHTML = "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Loadingsome.gif/600px-Loadingsome.gif' />";
+//     var customLoadingScreenCss = document.createElement('style');
+//     // customLoadingScreenCss.type = 'text/css';
+//     customLoadingScreenCss.innerHTML = `
+//     #customLoadingScreen{
+//         position: absolute;
+//         top: 0;
+//         width: 100%;
+//         height: 100%;
+//         background-color: #FFFFFF;
+//         color: white;
+//         font-size:50px;
+//         text-align:center;
+//         z-index: 3;
+//     }
+//     `;
 
-    document.getElementById('babylonContainer').appendChild(customLoadingScreenCss);
+//     document.getElementById('babylonContainer').appendChild(customLoadingScreenCss);
 
-    //this._resizeLoadingUI();
-    //window.addEventListener("resize", this._resizeLoadingUI);
 
-    document.getElementById("babylonContainer").appendChild(this._loadingDiv);
+//     //this._resizeLoadingUI();
+//     //window.addEventListener("resize", this._resizeLoadingUI);
 
-    document.getElementsByClassName("scrollTexts")[0].style.display = "none";
-};
+//     document.getElementById("babylonContainer").appendChild(this._loadingDiv);
 
-BABYLON.DefaultLoadingScreen.prototype.hideLoadingUI = function (scene) {
-    document.getElementById("customLoadingScreen").style.display = "none";
-    console.log("scene is now loaded");
 
-    document.getElementsByClassName("scrollTexts")[0].style.display = null;
+//     document.getElementsByClassName("scrollTexts")[0].style.display = "none";
+// };
 
-};
+// BABYLON.DefaultLoadingScreen.prototype.hideLoadingUI = function (scene) {
+//     document.getElementById("customLoadingScreen").style.display = "none";
+//     console.log("scene is now loaded");
+
+//     document.getElementsByClassName("scrollTexts")[0].style.display = null;
+
+// };
 
 //create the main BABYLON scene object
 function createScene(canvas, engine) {
@@ -102,11 +104,11 @@ function createScene(canvas, engine) {
     createSkybox(scene);
 
     //loading loading screen
-    engine.displayLoadingUI();
+    //engine.displayLoadingUI();
 
     //remove loading screen
     setTimeout(() => {
-        engine.hideLoadingUI();
+        // engine.hideLoadingUI();
 
         //animate Universal Camera
         animateUniversalCamera(scene);

@@ -31,6 +31,15 @@
     object-fit: cover;
 }
 
+#loadingScreen02 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: wheat;
+    text-align: center;
+    z-index: 30;
+}
+
 #customLoadingScreen img {
     margin-left: auto;
     margin-right: auto;
@@ -45,4 +54,3 @@
     z-index: 3;
     color: black;
 }
-

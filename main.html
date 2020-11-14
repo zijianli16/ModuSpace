@@ -3,6 +3,7 @@
 <head>
     <title>Babylon.js Spatial Storytelling Basic Template</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!-- import external scripts lib -->
     <script src="js/externalScriptsLib.js"></script>
     <!-- import css file -->
@@ -17,26 +18,35 @@
     <div class="frontDummyTexts"></div>
     <!-- =================End of Front Dummy Texts================= -->
 
+    <!-- Adding P Tags -->
+    <p>3D滚动叙事：向下滑动以领略明长城风光，手机用户横屏效果更佳。</p>
+    <!-- Adding P Tags -->
+
+
     <!-- =================BABYLON SCENE 01 STARTS BELOW================= -->
     <div id="contentContainer">
         <div id="videoSpacer"></div>
         <div id="babylonContainer01">
+            <div id="loadingScreen">
+                <img
+                    src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Loadingsome.gif/600px-Loadingsome.gif'>
+            </div>
             <canvas id="canvas" touch-action="auto"></canvas>
-            <figcaption class="figCaption">3D Model Courtesy of Miguel Bandera</figcaption>
+            <figcaption class="figCaption">特别鸣谢模型作者：DroneScan China。3D模型下载来源Sketchfab.com </figcaption>
         </div>
 
         <div id="textContainer">
             <div class="spacer" id="spacer0001"></div>
             <div id="trigger1"></div>
             <div id="pin1">
-                <p class="textbox" id="overlayText01">This 3D experience provides a bird view of the Bagan Temples. Scroll to fly over and view this magnificent landscape. </p>
+                <p class="textbox" id="overlayText01">明长城，建于公元1368–1644，东起鸭绿江，连接秦长城，西至嘉峪关，蜿蜒六千余公里，气势宏伟，是人类建筑史上的一个奇迹。</p>
             </div>
 
             <div class="spacer" id="spacer0102"></div>
             <div id="trigger2"></div>
             <div id="pin2">
                 <p class="textbox" id="overlayText02">
-                    Ground control, test 123, test 123, can you hear me?
+                    长城地处边陲，但是依旧可以看到当地村民开垦的菜地。可能比起长城的历史，中国人对于种菜的热爱更加源远流长。
                 </p>
             </div>
 
@@ -44,11 +54,37 @@
             <div id="trigger3"></div>
             <div id="pin3">
                 <p class="textbox" id="overlayText03">
-                    Ground control to Major Tom! Copy that! We will always love you!  
+                    随着历史的变迁和风吹雨打，长城的部分区域已经出现了塌方和损毁。但是长城的雄伟气魄却丝毫不减当年。
                 </p>
             </div>
+
+            <div class="spacer" id="spacer0304"></div>
+            <div id="trigger4"></div>
+            <div id="pin4">
+                <p class="textbox" id="overlayText04">
+                    毛主席曾写下豪迈的诗句：“不到长城非好汉”。现在我们就随着石阶一步步向上爬行，去看看长城还有什么其他不为人知的秘密。
+                </p>
+            </div>
+
+            <div class="spacer" id="spacer0405"></div>
+            <div id="trigger5"></div>
+            <div id="pin5">
+                <p class="textbox" id="overlayText05">
+                    现在我们看到的是“烽火台”。在长城上共有上千座这样的“烽火台”，它们通常位于山脉的顶端。每当有敌情出现，白天士兵们会放出黑色的浓烟，而在夜晚则会点燃烽火。
+                </p>
+            </div>
+
+            <div class="spacer" id="spacer0506"></div>
+            <div id="trigger6"></div>
+            <div id="pin6">
+                <p class="textbox" id="overlayText06">
+                    如今，”烽火台”顶端的木质结构早已经不见，但是修建长城的数万名匠人的魄力以及抵御外敌入侵的决心，将永远被中华儿女所铭记。
+                </p>
+            </div>
+
         </div>
     </div>
+
 
     <!-- =================Adding Back Dummy Texts================= -->
     <div class="backDummyTexts"></div>
@@ -62,9 +98,13 @@
     <!--Starting of babylon scrollytelling section -->
     <div id="babylonScrollytelling">
         <div id="babylonContainer">
+            <div id="loadingScreen02">
+                <img
+                    src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Loadingsome.gif/600px-Loadingsome.gif'>
+            </div>
             <!-- create the Babylon.js main canvas -->
             <canvas id="renderCanvas" touch-action="auto"></canvas>
-            <figcaption class="credit">Credit: 3D Model Courtesy of Miguel Bandera
+            <figcaption class="credit">3D模型现在来源Sketchfab.com；模型作者：DroneScan China。特别鸣谢！
             </figcaption>
         </div>
         <!-- Adding scrollama section below -->
