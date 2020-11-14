@@ -60,14 +60,14 @@ function blenderCameraAnimation(scene) {
     // This creates and positions a free camera (non-mesh) requried, and position does not matter 
     var camera_not_in_use = new BABYLON.FreeCamera("camera_not_in_use", new BABYLON.Vector3(0, 100, 0), scene);
 
-    new BABYLON.SceneLoader.ImportMesh('', 'models/', 'baganLandscape.gltf', scene, () => {
+    new BABYLON.SceneLoader.ImportMesh('', 'models/', 'GreatWallWholeView.gltf', scene, () => {
         //scene.createDefaultCameraOrLight(true, true, true)
         console.log("scene =" + scene);
 
         let camera_active = scene.getCameraByName("blenderCamera")
         scene.activeCamera = camera_active
 
-        let cameraAnimation = scene.getAnimationGroupByName("cameraAction");
+        let cameraAnimation = scene.getAnimationGroupByName("Action");
         //stop animation loop
         cameraAnimation.play(false);
         //animatio play speed
@@ -166,13 +166,13 @@ setInterval(() => {
 
 //------------------------OverlayText01---------------------
 //set text01 mergining from bottom of viewport at 2 second
-let text01TargetShowTime = 2;
+let text01TargetShowTime = 0.2;
 let overlayText01DisFromTop = text01TargetShowTime * yOffsetToVidTimeRate + windowHeight * 0.5;
 //videoCurrentTime *yOffsetToVideoTimeRate + TriggerHookRate (i.e 0.3) * windowHeight
 document.getElementById("spacer0001").style.marginTop = overlayText01DisFromTop + "px";
 
 //set text01 pin duration, i.e 800px or 0.8 second of video duration
-let text01Stay = 800;
+let text01Stay = 600;
 
 let text01Scene = new ScrollMagic.Scene({
     triggerHook: 0.5,
@@ -187,7 +187,7 @@ let text01Scene = new ScrollMagic.Scene({
 
 //------------------------OverlayText02---------------------
 //set text02 mergining from bottom of viewport at 4 second
-let text02TargetShowTime = 4;
+let text02TargetShowTime = 2;
 //set text02 pin duration, i.e 800px or 0.8 second of video duration
 let text02Stay = 800;
 document.getElementById("spacer0102").style.marginTop = (text02TargetShowTime - text01TargetShowTime) * yOffsetToVidTimeRate - text01Stay + "px"
@@ -204,7 +204,7 @@ let text02Scene = new ScrollMagic.Scene({
 
 //------------------------OverlayText03---------------------
 //set text03 mergining from bottom of viewport at 6 second
-let text03TargetShowTime = 6;
+let text03TargetShowTime = 4.5;
 //set text03 pin duration, i.e 1000px or 1 second of video duration
 let text03Stay = 1000;
 document.getElementById("spacer0203").style.marginTop = (text03TargetShowTime - text02TargetShowTime) * yOffsetToVidTimeRate - text02Stay + "px";
@@ -218,4 +218,58 @@ let text03Scene = new ScrollMagic.Scene({
     .addTo(controller)
     //.addIndicators({ name: "--- text03 Scene" });
 //------------------------OverlayText03---------------------
+
+//------------------------OverlayText04---------------------
+//set text04 mergining from bottom of viewport at 6 second
+let text04TargetShowTime = 6.5;
+//set text04 pin duration, i.e 1000px or 1 second of video duration
+let text04Stay = 1000;
+document.getElementById("spacer0304").style.marginTop = (text04TargetShowTime - text03TargetShowTime) * yOffsetToVidTimeRate - text03Stay + "px";
+
+let text04Scene = new ScrollMagic.Scene({
+    triggerHook: 0.5,
+    triggerElement: "#trigger4",
+    duration: text04Stay,
+})
+    .setPin("#pin4")
+    .addTo(controller)
+    //.addIndicators({ name: "--- text04 Scene" });
+//------------------------OverlayText04---------------------
+
+//------------------------OverlayText05---------------------
+//set text05 mergining from bottom of viewport at 6 second
+let text05TargetShowTime = 8.5;
+//set text05 pin duration, i.e 1000px or 1 second of video duration
+let text05Stay = 400;
+document.getElementById("spacer0405").style.marginTop = (text05TargetShowTime - text04TargetShowTime) * yOffsetToVidTimeRate - text04Stay + "px";
+
+let text05Scene = new ScrollMagic.Scene({
+    triggerHook: 0.5,
+    triggerElement: "#trigger5",
+    duration: text05Stay,
+})
+    .setPin("#pin5")
+    .addTo(controller)
+    //.addIndicators({ name: "--- text04 Scene" });
+//------------------------OverlayText05---------------------
+
+//------------------------OverlayText06---------------------
+//set text06 mergining from bottom of viewport at 6 second
+let text06TargetShowTime = 9.5;
+//set text05 pin duration, i.e 1000px or 1 second of video duration
+let text06Stay = 800;
+document.getElementById("spacer0506").style.marginTop = (text06TargetShowTime - text05TargetShowTime) * yOffsetToVidTimeRate - text05Stay + "px";
+
+let text06Scene = new ScrollMagic.Scene({
+    triggerHook: 0.5,
+    triggerElement: "#trigger6",
+    duration: text06Stay,
+})
+    .setPin("#pin6")
+    .addTo(controller)
+    //.addIndicators({ name: "--- text04 Scene" });
+//------------------------OverlayText05---------------------
+
+
+
 //======================Texts Section END========================
