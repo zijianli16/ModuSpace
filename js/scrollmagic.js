@@ -19,7 +19,7 @@ var createScene = function (canvas, engine) {
     blenderCameraAnimation(scene);
 
     //----------Aboves are basic setup---------------
-
+    createSkybox(scene);
     //debug(scene);
 
     return scene;
@@ -60,7 +60,29 @@ function blenderCameraAnimation(scene) {
     // This creates and positions a free camera (non-mesh) requried, and position does not matter 
     var camera_not_in_use = new BABYLON.FreeCamera("camera_not_in_use", new BABYLON.Vector3(0, 100, 0), scene);
 
-    new BABYLON.SceneLoader.ImportMesh('', 'models/', 'GreatWallWholeView.gltf', scene, () => {
+    // new BABYLON.SceneLoader.ImportMesh('', 'models/', 'GreatWallWholeView.gltf', scene, () => {
+    //     //scene.createDefaultCameraOrLight(true, true, true)
+    //     console.log("scene =" + scene);
+
+    //     let camera_active = scene.getCameraByName("blenderCamera")
+    //     scene.activeCamera = camera_active
+
+    //     let cameraAnimation = scene.getAnimationGroupByName("Action");
+    //     //stop animation loop
+    //     cameraAnimation.play(false);
+    //     //animatio play speed
+    //     //cameraAnimation.speedRatio = 2;
+    //     cameraAnimation.goToFrame(0);
+    //     cameraAnimation.pause();
+
+    //     document.getElementById("loadingScreen").style.display = "none";
+
+    //     setInterval(() => {
+    //         cameraAnimation.goToFrame(value);
+    //     }, 1000 / 24);
+    // })
+
+    BABYLON.SceneLoader.ImportMeshAsync('', 'models/', 'GreatWallWholeView.gltf', scene).then(() => {
         //scene.createDefaultCameraOrLight(true, true, true)
         console.log("scene =" + scene);
 
@@ -80,13 +102,26 @@ function blenderCameraAnimation(scene) {
         setInterval(() => {
             cameraAnimation.goToFrame(value);
         }, 1000 / 24);
-    })
+    });
 }
 
 //Debug: show Scene Explore and Inspector
 function debug(scene) {
     //Debug: show Scene Explore and Inspector
     scene.debugLayer.show();
+}
+
+
+function createSkybox(scene) {
+    const skybox = BABYLON.MeshBuilder.CreateBox("skyBox", { size: 150 }, scene);
+    const skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
+    skyboxMaterial.backFaceCulling = false;
+    skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("images/skybox", scene);
+    skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
+    skyboxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
+    skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
+    skybox.material = skyboxMaterial;
+
 }
 
 //==============================Scrollmagic code are below================================
@@ -216,7 +251,7 @@ let text03Scene = new ScrollMagic.Scene({
 })
     .setPin("#pin3")
     .addTo(controller)
-    //.addIndicators({ name: "--- text03 Scene" });
+//.addIndicators({ name: "--- text03 Scene" });
 //------------------------OverlayText03---------------------
 
 //------------------------OverlayText04---------------------
@@ -233,7 +268,7 @@ let text04Scene = new ScrollMagic.Scene({
 })
     .setPin("#pin4")
     .addTo(controller)
-    //.addIndicators({ name: "--- text04 Scene" });
+//.addIndicators({ name: "--- text04 Scene" });
 //------------------------OverlayText04---------------------
 
 //------------------------OverlayText05---------------------
@@ -250,7 +285,7 @@ let text05Scene = new ScrollMagic.Scene({
 })
     .setPin("#pin5")
     .addTo(controller)
-    //.addIndicators({ name: "--- text04 Scene" });
+//.addIndicators({ name: "--- text04 Scene" });
 //------------------------OverlayText05---------------------
 
 //------------------------OverlayText06---------------------
