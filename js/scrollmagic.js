@@ -4,6 +4,7 @@
 let value;
 
 var canvas = document.getElementById("canvas");
+
 var engine = new BABYLON.Engine(canvas, true);
 
 var createScene = function (canvas, engine) {
@@ -20,6 +21,7 @@ var createScene = function (canvas, engine) {
 
     //----------Aboves are basic setup---------------
     createSkybox(scene);
+    
     //debug(scene);
 
     return scene;
@@ -121,7 +123,6 @@ function createSkybox(scene) {
     skyboxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
     skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
     skybox.material = skyboxMaterial;
-
 }
 
 //==============================Scrollmagic code are below================================
@@ -151,7 +152,7 @@ let controller = new ScrollMagic.Controller();
 
 //========================Input Your Customized Value Below =====================
 
-let videoDuration = 12.5;
+let videoDuration = 14;
 //how long is the video? i.e 14 means that video is 14 seconds long. 
 let videoFrameRate = 24;
 //what is the video frame rate? i.e: 25fps/30fps
